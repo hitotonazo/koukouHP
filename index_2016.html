@@ -1,0 +1,164 @@
+
+<!-- index_2016.html -->
+
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>霧籠高等学校（旧サイト 2016）</title>
+  <style>
+    :root{
+      --glitch:.55; --noise:.55; --jitter:1.2px; --hue:-14deg;
+      --bg:#f4f6f8;--ink:#111;--brand:#0f3a5f;--line:#d7dde3;--card:#fff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+    a{color:#0f3a5f}
+    header{
+      background:var(--brand);color:#fff;padding:14px 16px;
+      position:sticky;top:0;z-index:5;
+      transform: translateX(var(--jitter));
+      filter: saturate(1.1);
+    }
+    .wrap{max-width:980px;margin:0 auto;padding:12px 16px}
+    .bar{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:10px;position:relative}
+    nav a{display:inline-block;margin-right:10px;text-decoration:none}
+    nav a:hover{text-decoration:underline}
+    .cols{display:flex;gap:12px;align-items:flex-start}
+    .main{flex:1.1}
+    .side{flex:.9; min-width:320px}
+    @media (max-width:900px){.cols{flex-direction:column}.side{min-width:auto}}
+    h1{margin:0;font-size:20px;letter-spacing:.02em}
+    h2{margin:0 0 8px;font-size:14px;color:#0f3a5f}
+    ul{margin:6px 0 0;padding-left:18px}
+    li{margin:6px 0}
+    .note{font-size:12px;color:#556;line-height:1.6}
+    .hr{height:1px;background:var(--line);margin:10px 0}
+    .badge{display:inline-block;font-size:12px;padding:2px 8px;border:1px solid #c7d2dc;border-radius:99px;color:#eef;opacity:.95}
+    footer{border-top:1px solid var(--line);margin-top:18px;padding:10px 0;color:#667;font-size:12px}
+
+    /* 露骨に壊れていく演出：ノイズ・色ズレ・一部欠け */
+    html{filter:hue-rotate(var(--hue)) saturate(1.15) contrast(1.05);}
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
+      background:
+        repeating-linear-gradient(0deg, rgba(0,0,0,.10) 0px, rgba(0,0,0,.10) 1px, transparent 2px, transparent 4px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0px, rgba(0,0,0,.05) 1px, transparent 2px, transparent 6px);
+      opacity: .25;
+      mix-blend-mode:multiply;
+    }
+    body::after{
+      content:"";position:fixed;inset:-10px;pointer-events:none;z-index:9998;
+      background: radial-gradient(circle at 20% 20%, rgba(0,0,0,.18), transparent 45%),
+                  radial-gradient(circle at 70% 60%, rgba(0,0,0,.12), transparent 50%);
+      opacity:.55;
+    }
+
+    /* ボックスが“引っ張られる” */
+    .wobble{animation:wob 3.2s ease-in-out infinite}
+    @keyframes wob{
+      0%,100%{transform: translate(0,0) skewX(0deg)}
+      20%{transform: translate(-1px,0) skewX(-.2deg)}
+      45%{transform: translate(2px,1px) skewX(.35deg)}
+      70%{transform: translate(-2px,-1px) skewX(-.4deg)}
+    }
+
+    /* 見出しが二重化してズレる */
+    .ghost{position:relative;display:inline-block}
+    .ghost::before,.ghost::after{
+      content: attr(data-text);
+      position:absolute;left:0;top:0;pointer-events:none;
+      opacity:.35;
+      mix-blend-mode:screen;
+    }
+    .ghost::before{transform: translate(2px,0); color:rgba(255,255,255,.65)}
+    .ghost::after {transform: translate(-2px,1px); color:rgba(0,0,0,.35)}
+
+    /* “欠けた”帯（テキストが見切れる） */
+    .cut{
+      clip-path: polygon(0 0,100% 0,100% 92%,0 100%);
+    }
+
+    /* 危険リンクだけ不自然に薄い */
+    .thin{opacity:.45}
+    .thin:hover{opacity:.9}
+
+    /* 右カラムが意図的に少しはみ出す */
+    .side{position:relative; right:-18px}
+  </style>
+</head>
+<body>
+  <header class="cut">
+    <h1 class="ghost" data-text="〇〇県立 霧籠高等学校">〇〇県立 霧籠高等学校</h1>
+    <div class="note"><span class="badge">旧Web（2016）</span> 更新：2016/06/30</div>
+  </header>
+
+  <div class="wrap bar wobble">
+    <nav>
+      <a href="#news">お知らせ</a>
+      <a href="#outline">学校案内</a>
+      <a href="#access">交通案内</a>
+      <a href="index_2010.html">さらに旧版（2010）</a>
+    </nav>
+    <div class="note" style="margin-top:8px">
+      サーバ移行の影響により、旧ページは一部表示が乱れる場合があります。
+    </div>
+  </div>
+
+  <main class="wrap cols">
+    <section class="bar main wobble" id="news">
+      <h2>お知らせ</h2>
+      <ul>
+        <li>学校説明会のご案内</li>
+        <li>PTAだより（PDF）</li>
+        <li>警報発令時の対応</li>
+      </ul>
+
+      <div class="hr"></div>
+
+      <h2 id="outline">学校案内</h2>
+      <ul>
+        <li><a href="#">校長あいさつ</a></li>
+        <li><a href="#">教育課程</a></li>
+        <li><a class="thin" href="#">理科準備室</a> <span class="note">（権限がありません）</span></li>
+      </ul>
+
+      <div class="hr"></div>
+
+      <h2>更新履歴</h2>
+      <ul class="note">
+        <li>2016/06/30：行事予定更新</li>
+        <li>2016/05/12：部活動ページ追加</li>
+        <li>2016/04/??：—</li>
+        <li>2016/03/??：—</li>
+      </ul>
+      <p class="note">※一部の更新記録が欠落しています。</p>
+    </section>
+
+    <aside class="bar side wobble" id="access">
+      <h2>交通案内</h2>
+      <p class="note">最寄り駅：〇〇駅（徒歩15分）</p>
+
+      <div class="hr"></div>
+
+      <h2>注記</h2>
+      <p class="note">
+        表示が崩れる場合は、<b>戻る</b>ボタンを使用してください。<br>
+        旧サイトの旧版は、さらに構成が異なります。
+      </p>
+
+      <div class="hr"></div>
+
+      <p class="note">
+        <a href="index_2010.html">旧版（2010）</a>
+      </p>
+    </aside>
+  </main>
+
+  <footer class="wrap">
+    © 〇〇県立霧籠高等学校 / このページは旧サイトです
+  </footer>
+</body>
+</html>
+

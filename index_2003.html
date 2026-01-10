@@ -1,0 +1,189 @@
+
+<!-- index_2003.html -->
+
+
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+  <title>霧籠高等学校 公式ホームページ（2003）</title>
+  <style>
+    :root{--glitch:1;--hue:-40deg;}
+    html{filter:hue-rotate(var(--hue)) saturate(1.25) contrast(1.18);}
+    body{
+      margin:0;
+      background:#ffffff;
+      color:#000;
+      overflow-x:hidden;
+    }
+
+    /* 露骨ノイズ＆走査線 */
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
+      background:
+        repeating-linear-gradient(0deg, rgba(0,0,0,.22) 0px, rgba(0,0,0,.22) 1px, transparent 2px, transparent 4px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,.06) 0px, rgba(0,0,0,.06) 1px, transparent 2px, transparent 9px);
+      opacity:.42;mix-blend-mode:multiply;
+    }
+
+    /* 全体が傾く */
+    .tilt{
+      transform: rotate(-.9deg) skewX(-1.8deg);
+      transform-origin: 50% 0%;
+    }
+
+    /* “欠け” */
+    .fracture{
+      position:relative;
+      clip-path: polygon(0 0,100% 0,100% 72%,0 100%);
+    }
+    .fracture::after{
+      content:"";
+      position:absolute;left:-20px;right:-20px;top:55%;
+      height:16px;
+      background:rgba(0,0,0,.85);
+      transform: rotate(-.7deg);
+      opacity:.55;
+    }
+
+    /* 文字が時々ズレる */
+    .jolt{animation:jolt 1.8s steps(1,end) infinite}
+    @keyframes jolt{
+      0%,60%{transform:translate(0,0)}
+      61%{transform:translate(12px,-3px)}
+      62%{transform:translate(-14px,4px)}
+      63%{transform:translate(0,0)}
+    }
+
+    /* 見えないリンク群（怖い“空リンク”） */
+    .dead a{color:#333;text-decoration:underline dotted;opacity:.55}
+    .dead a:hover{opacity:1}
+
+    /* 黒塗り */
+    .blk{background:#000;color:transparent;padding:0 3px}
+
+    /* 右カラムがはみ出す */
+    .rightOverflow{position:relative;left:22px}
+  </style>
+</head>
+
+<body link="#003399" vlink="#663399" alink="#ff0000">
+<div class="tilt jolt">
+
+<table width="760" align="center" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td bgcolor="#003366" height="60" class="fracture">
+      <font color="#ffffff" size="5"><b>&nbsp;〇〇県立 霧籠高等学校</b></font><br>
+      <font color="#cfe6ff" size="2">&nbsp;Official Website / 更新 2003/09/18</font>
+    </td>
+  </tr>
+
+  <tr>
+    <td bgcolor="#e6eef6" height="28">
+      <font size="2">
+        &nbsp;<a href="#news">お知らせ</a> |
+        <a href="#info">学校案内</a> |
+        <a href="#bbs">掲示板</a> |
+        <a href="#logs">過去ログ</a> |
+        <a href="index_1998.html">旧版（1998）</a>
+      </font>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="760" border="0" cellpadding="10" cellspacing="0">
+        <tr valign="top">
+          <td width="520" class="fracture">
+            <a name="news"></a>
+            <font size="3" color="#003366"><b>■ お知らせ</b></font>
+            <hr color="#ccddee">
+            <ul>
+              <li><font size="2">文化祭のご案内</font></li>
+              <li><font size="2">入試情報を掲載しました</font></li>
+              <li><font size="2">（重要）校内連絡</font> <font size="2" color="#666666">…</font></li>
+              <li><font size="2"><span class="blk">欠落</span> のため表示できません</font></li>
+            </ul>
+
+            <a name="info"></a>
+            <font size="3" color="#003366"><b>■ 学校案内</b></font>
+            <hr color="#ccddee">
+            <font size="2">
+              ・<a href="#">校長あいさつ</a><br>
+              ・<a href="#">教育課程</a><br>
+              ・<a href="#" class="blk">校内施設（写真）</a> <font color="#666666">※表示できません</font><br>
+              ・<a href="#" style="opacity:.35">理科準備室</a> <font color="#666666">（閲覧制限）</font><br>
+            </font>
+
+            <br>
+
+            <a name="bbs"></a>
+            <font size="3" color="#003366"><b>■ 掲示板</b></font>
+            <hr color="#ccddee">
+            <font size="2">※掲示板は現在停止中です。</font><br>
+            <font size="2" color="#666666">（過去ログは保管されています）</font>
+
+            <br><br>
+
+            <a name="logs"></a>
+            <font size="3" color="#003366"><b>■ 過去ログ</b></font>
+            <hr color="#ccddee">
+            <font size="2" color="#666666">※閲覧できません（リンク切れ）</font>
+
+            <div class="dead">
+              <ul>
+                <li><font size="2"><a href="log_2002.html">log_2002.html</a></font></li>
+                <li><font size="2"><a href="log_2001.html">log_2001.html</a></font></li>
+                <li><font size="2"><a href="log_2000.html">log_2000.html</a></font></li>
+                <li><font size="2"><a href="log_1999.html">log_1999.html</a></font></li>
+                <li><font size="2"><a href="log_1998.html">log_1998.html</a></font></li>
+                <li><font size="2"><a href="log_1997.html">log_1997.html</a></font></li>
+              </ul>
+            </div>
+
+            <font size="2" color="#666666">
+              追記：校内連絡の一部が欠落しています。<br>
+              追記：<span class="blk">記録</span> は公開できません。
+            </font>
+          </td>
+
+          <td width="240" bgcolor="#f6fbff" class="rightOverflow fracture">
+            <font size="3" color="#003366"><b>■ メニュー</b></font>
+            <hr color="#ccddee">
+            <font size="2">
+              ・<a href="#">行事予定</a><br>
+              ・<a href="#">進路指導</a><br>
+              ・<a href="#">アクセス</a><br><br>
+
+              ・<b>工事中</b><br>
+              ・<a href="#" class="blk">校内連絡</a><br>
+              ・<a href="#" style="opacity:.35">写真</a><br><br>
+
+              あなたは <b>000123</b> 番目のお客様です<br><br>
+              <font color="#666666">※表示が乱れる場合は再読込してください</font>
+            </font>
+
+            <hr color="#ccddee">
+
+            <font size="2">
+              <b>旧版：</b><br>
+              <a href="index_1998.html">1998年版</a><br>
+              <font color="#666666">（戻れない場合があります）</font>
+            </font>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center" bgcolor="#e6eef6" height="36">
+      <font size="2" color="#333333">Copyright (C) Kirimori High School. All Rights Reserved.</font>
+    </td>
+  </tr>
+</table>
+
+</div>
+</body>
+</html>

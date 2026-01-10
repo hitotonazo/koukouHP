@@ -1,0 +1,175 @@
+
+<!-- index_2010.html -->
+
+
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>霧籠高等学校 - 公式Web（2010）</title>
+  <style>
+    :root{--glitch:.85;--noise:.9;--hue:-26deg;}
+    body{margin:0;background:#e9eef2;color:#111;font-family:Meiryo,"MS PGothic",sans-serif;overflow-x:hidden}
+
+    /* 固定幅なのに“折れる” */
+    #container{
+      width:900px;margin:0 auto;background:#fff;
+      border-left:1px solid #b8c2cc;border-right:1px solid #b8c2cc;
+      position:relative;
+      transform: perspective(700px) rotateX(1.6deg) rotateY(-2.2deg);
+      transform-origin: 50% 0%;
+      box-shadow: 0 20px 60px rgba(0,0,0,.12);
+    }
+    #header{background:#1b4f7a;color:#fff;padding:14px;position:relative}
+    #nav{background:#d7e4ef;padding:8px;border-top:1px solid #b8c2cc;border-bottom:1px solid #b8c2cc}
+    #nav a{color:#1b4f7a;text-decoration:none;margin-right:10px}
+    #nav a:hover{text-decoration:underline}
+    #content{display:flex}
+    #main{flex:1;padding:12px;position:relative}
+    #side{
+      width:260px;border-left:1px solid #dfe6ee;background:#f7fbff;padding:12px;
+      position:relative;
+      left:18px; /* 露骨にズレる */
+    }
+    h1{margin:0;font-size:20px}
+    h2{margin:0 0 8px;font-size:14px;color:#1b4f7a}
+    ul{margin:6px 0 0;padding-left:18px}
+    li{margin:6px 0}
+    .small{font-size:12px;color:#444;line-height:1.65}
+    .warn{background:#fff3cd;border:1px solid #e6d69a;padding:8px;font-size:12px;color:#6b5a1b}
+
+    /* テキストが“引っ張られて”切れる */
+    .tear{
+      width: calc(100% + 120px);
+      transform: translateX(-60px) skewX(-1.6deg);
+      clip-path: polygon(0 0,100% 0,100% 82%,0 100%);
+      background:#ffffff;
+      border:1px dashed #ccd6df;
+      padding:10px;
+    }
+
+    #footer{border-top:1px solid #b8c2cc;padding:10px;color:#555;font-size:12px}
+
+    /* 露骨ノイズ/色ズレ/スキャンライン */
+    html{filter:hue-rotate(var(--hue)) saturate(1.2) contrast(1.12);}
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
+      background:
+        repeating-linear-gradient(0deg, rgba(0,0,0,.18) 0px, rgba(0,0,0,.18) 1px, transparent 2px, transparent 4px),
+        linear-gradient(180deg, rgba(255,255,255,.06), transparent 15%, rgba(0,0,0,.08));
+      opacity:.38;mix-blend-mode:multiply;
+    }
+
+    /* 見出しを二重表示 */
+    .ghost{position:relative;display:inline-block}
+    .ghost::before,.ghost::after{
+      content: attr(data-text);
+      position:absolute;left:0;top:0;pointer-events:none;
+      opacity:.55;
+    }
+    .ghost::before{transform:translate(2px,0);color:rgba(255,255,255,.55)}
+    .ghost::after{transform:translate(-3px,1px);color:rgba(0,0,0,.25)}
+
+    /* 画面が時々ガクッとズレる（露骨） */
+    .jump{animation:jump 2.6s steps(1,end) infinite}
+    @keyframes jump{
+      0%,15%{transform:translate(0,0)}
+      16%{transform:translate(8px,-2px)}
+      17%{transform:translate(-10px,3px)}
+      18%{transform:translate(0,0)}
+      60%{transform:translate(0,0)}
+      61%{transform:translate(6px,0)}
+      62%{transform:translate(0,0)}
+    }
+
+    /* 一部だけ黒塗り */
+    .redact{
+      position:relative;color:transparent;
+    }
+    .redact::after{
+      content:"";position:absolute;left:-2px;right:-2px;top:0.2em;height:1.2em;
+      background:#0b0b0b;
+    }
+  </style>
+</head>
+<body>
+  <div id="container" class="jump">
+    <div id="header">
+      <h1 class="ghost" data-text="〇〇県立 霧籠高等学校">〇〇県立 霧籠高等学校</h1>
+      <div class="small">公式Web（2010） / 更新：2010/11/05</div>
+    </div>
+
+    <div id="nav">
+      <a href="#news">お知らせ</a>
+      <a href="#pdf">配布資料</a>
+      <a href="#important">重要</a>
+      <a href="index_2003.html">旧サイト（2003）</a>
+    </div>
+
+    <div id="content">
+      <div id="main">
+        <h2 id="news">お知らせ</h2>
+        <div class="tear">
+          <ul>
+            <li>インフルエンザ対応について</li>
+            <li>進路指導室より</li>
+            <li>文化祭（一般公開）</li>
+          </ul>
+          <div class="small">※表示が乱れる場合は再読込してください。</div>
+        </div>
+
+        <h2 id="pdf" style="margin-top:16px">配布資料</h2>
+        <div class="tear">
+          <ul>
+            <li><a href="#">学校要覧.pdf</a></li>
+            <li><a href="#">年間行事.pdf</a></li>
+            <li><a href="#">校内配置図.pdf</a> <span class="small">（一部欠落）</span></li>
+            <li><span class="redact">理科準備室_保管一覧.pdf</span> <span class="small">（参照不可）</span></li>
+          </ul>
+        </div>
+
+        <h2 id="important" style="margin-top:16px">重要</h2>
+        <div class="warn tear">
+          （重要）校内連絡<br>
+          <span class="small">※本文が表示されません。時間をおいて再度アクセスしてください。</span>
+          <div class="small" style="margin-top:8px">—</div>
+        </div>
+
+        <p class="small" style="margin-top:10px">
+          ※このページは旧環境向けです。リンク先が存在しない場合があります。
+        </p>
+      </div>
+
+      <div id="side">
+        <h2>メニュー</h2>
+        <ul>
+          <li><a href="#">校長あいさつ</a></li>
+          <li><a href="#">学科紹介</a></li>
+          <li><a href="#">部活動</a></li>
+          <li><a href="#">アクセス</a></li>
+        </ul>
+
+        <h2 style="margin-top:16px">更新情報</h2>
+        <ul class="small">
+          <li>2010/11/05：資料追加</li>
+          <li>2010/10/??：—</li>
+          <li>2010/09/18：お知らせ更新</li>
+          <li>2010/08/??：—</li>
+        </ul>
+
+        <p class="small" style="margin-top:14px">
+          旧サイト：<br>
+          <a href="index_2003.html">2003年版</a>
+        </p>
+      </div>
+    </div>
+
+    <div id="footer">
+      © Kirimori High School / Since 2001
+    </div>
+  </div>
+</body>
+</html>
+
+

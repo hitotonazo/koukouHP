@@ -1,0 +1,159 @@
+
+<!-- index_1998.html -->
+
+
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <title>霧籠高等学校（1998）</title>
+  <style>
+    :root{--hue:-62deg;}
+    html{filter:hue-rotate(var(--hue)) saturate(1.35) contrast(1.2);}
+    body{
+      margin:0;
+      background:#ffffff;
+      color:#000;
+      overflow:hidden; /* 逃げ道を減らして不快にする */
+      font-family:"MS PGothic",sans-serif;
+    }
+
+    /* 強烈ノイズ＆スキャンライン */
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
+      background:
+        repeating-linear-gradient(0deg, rgba(0,0,0,.28) 0px, rgba(0,0,0,.28) 1px, transparent 2px, transparent 4px),
+        radial-gradient(circle at 55% 35%, rgba(0,0,0,.24), transparent 55%);
+      opacity:.55;mix-blend-mode:multiply;
+    }
+
+    /* 全体が常時揺れる（露骨） */
+    .shake{animation:shake 1.2s steps(1,end) infinite}
+    @keyframes shake{
+      0%,20%{transform:translate(0,0)}
+      21%{transform:translate(10px,-3px)}
+      22%{transform:translate(-12px,5px)}
+      23%{transform:translate(6px,1px)}
+      24%{transform:translate(0,0)}
+      70%{transform:translate(0,0)}
+      71%{transform:translate(8px,0)}
+      72%{transform:translate(0,0)}
+    }
+
+    /* チラつき */
+    .blink{animation:blink .8s steps(1,end) infinite}
+    @keyframes blink{50%{opacity:0}}
+
+    /* 文字が欠ける */
+    .cut{clip-path: polygon(0 0,100% 0,100% 82%,0 100%);}
+
+    /* 赤い警告 */
+    .danger{color:#900;font-weight:bold}
+
+    /* 画面の端で見切れるように */
+    .frame{
+      width:680px;
+      margin:0 auto;
+      padding:10px;
+      position:relative;
+      top:-10px;
+      transform: rotate(1.4deg) skewX(-2.6deg);
+    }
+
+    /* “見えないもの”の断片 */
+    .fragment{
+      font-size:12px;color:#444;
+      opacity:.75;
+      letter-spacing:.08em;
+      background:rgba(0,0,0,.06);
+      display:inline-block;
+      padding:4px 6px;
+    }
+
+    a{color:#00f}
+    .thin{opacity:.35}
+    .thin:hover{opacity:1}
+
+    /* 黒塗り */
+    .blk{background:#000;color:transparent;padding:0 4px}
+  </style>
+</head>
+
+<body>
+<div class="shake">
+  <center class="frame cut">
+    <table width="640" border="0" cellpadding="8" cellspacing="0">
+      <tr>
+        <td align="center">
+          <font size="6"><b>霧籠高等学校</b></font><br>
+          <font size="2">KIRIMORI HIGH SCHOOL</font><br><br>
+
+          <font size="2" class="danger"><b>★ お知らせ ★</b></font><br>
+          <font size="2"><span class="blink">ホームページを開設しました。</span></font>
+          <hr width="90%">
+
+          <table width="100%" border="0">
+            <tr>
+              <td width="50%" valign="top" align="left">
+                <font size="2"><b>■ メニュー</b></font><br>
+                <font size="2">
+                  ・<a href="#" class="thin">学校案内</a><br>
+                  ・<a href="#" class="thin">行事</a><br>
+                  ・<a href="#" class="thin">部活動</a><br>
+                  ・<a href="#" class="thin">連絡先</a><br>
+                </font>
+
+                <br>
+
+                <font size="2" class="danger"><b>■ 注意</b></font><br>
+                <font size="2">
+                  ﾍﾟｰｼﾞｶﾞ ﾐﾀﾗ ﾓﾄﾞﾚﾅｲ<br>
+                  <span class="blk">ﾁｶ</span> ﾊ ﾅｲ
+                </font>
+              </td>
+
+              <td width="50%" valign="top" align="left">
+                <font size="2"><b>■ 更新情報</b></font><br>
+                <font size="2">
+                  1998/07/10　開設<br>
+                  1998/07/22　行事掲載<br>
+                  1998/08/03　工事中<br>
+                  1998/08/??　—<br>
+                  1998/08/??　—<br>
+                </font>
+
+                <br>
+
+                <font size="2" class="danger"><b>■ 資料</b></font><br>
+                <font size="2">
+                  <a href="final_archive.pdf">資料（PDF）</a><br>
+                  <span style="font-size:11px;color:#666">※閲覧は自己責任</span>
+                </font>
+              </td>
+            </tr>
+          </table>
+
+          <hr width="90%">
+
+          <div class="fragment">
+            ﾘｶ ｼﾞｭﾝﾋﾞｼﾂ / ﾁｶ / ｷﾛｸ ﾊ ﾃﾞﾅｲ<br>
+            ﾐﾅｲ ﾎｳ ｶﾞ ｲｲ / ﾐﾀ ﾓﾉ ﾊ ﾓﾄﾞﾗﾅｲ
+          </div>
+
+          <hr width="90%">
+
+          <font size="2">
+            <a href="index_2003.html">戻る（2003）</a>
+          </font>
+
+          <br><br>
+          <font size="1" color="#666666">
+            ※このページは旧サイトです（閲覧環境により表示が崩れます）
+          </font>
+        </td>
+      </tr>
+    </table>
+  </center>
+</div>
+</body>
+</html>
