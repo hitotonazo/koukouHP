@@ -7,78 +7,91 @@
   <meta name="robots" content="noindex,nofollow" />
   <style>
     :root{
-      --bg:#f3f4f6;
-      --card:#ffffff;
-      --txt:#111827;
-      --muted:#6b7280;
-      --line:#e5e7eb;
-      --link:#1d4ed8;
-      --accent:#0f172a;
-      --radius:10px;
+      --bg:#07090d;
+      --panel:#0c1017;
+      --panel2:#0a0d13;
+      --txt:#e5e7eb;
+      --muted:#9aa4b2;
+      --line:#1b2433;
+      --link:#93c5fd;
+      --warn:#fbbf24;
+      --danger:#fb7185;
+      --radius:12px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans JP",sans-serif;
-      background:var(--bg);
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Noto Sans JP",monospace;
+      background:
+        radial-gradient(900px 500px at 20% 0%, rgba(59,130,246,.12), transparent 60%),
+        radial-gradient(700px 480px at 80% 20%, rgba(244,63,94,.08), transparent 55%),
+        linear-gradient(180deg, var(--bg), #05060a 70%);
       color:var(--txt);
-      line-height:1.6;
+      line-height:1.7;
     }
     a{color:var(--link);text-decoration:none}
     a:hover{text-decoration:underline}
     header{
-      background:var(--accent);
-      color:#fff;
-      padding:14px 16px;
-      border-bottom:1px solid rgba(255,255,255,.12);
+      position:sticky;top:0;z-index:9;
+      background:rgba(7,9,13,.88);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(10px);
     }
-    .wrap{max-width:980px;margin:0 auto;padding:14px}
-    h1{margin:0;font-size:18px;letter-spacing:.02em}
+    .wrap{max-width:980px;margin:0 auto;padding:14px 16px}
+    h1{margin:0;font-size:18px;letter-spacing:.06em}
+    .sub{margin-top:6px;color:var(--muted);font-size:12px}
     .notice{
-      background:#fff;
+      background:linear-gradient(180deg, rgba(12,16,23,.95), rgba(10,13,19,.95));
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:12px;
+      box-shadow:var(--shadow);
       margin-top:14px;
     }
-    .notice p{margin:0}
     .rule{white-space:pre-line;color:var(--muted);font-size:13px;margin-top:8px}
     .board{
-      background:var(--card);
+      background:rgba(12,16,23,.92);
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:12px;
+      box-shadow:var(--shadow);
       margin-top:14px;
     }
     .section-title{
-      font-size:14px;
+      font-size:13px;
       margin:0 0 10px;
       color:var(--muted);
-      letter-spacing:.02em;
+      letter-spacing:.06em;
     }
     .threads{margin:0;padding-left:18px}
     .threads li{margin:6px 0}
+    .threads a{color:#c7d2fe}
     .hr{height:1px;background:var(--line);margin:14px 0}
     .thread{
       border:1px solid var(--line);
       border-radius:var(--radius);
       overflow:hidden;
       margin-top:14px;
-      background:#fff;
+      background:rgba(12,16,23,.92);
+      box-shadow:var(--shadow);
     }
     .thread-head{
       padding:10px 12px;
-      background:#f9fafb;
+      background:rgba(8,10,14,.7);
       border-bottom:1px solid var(--line);
     }
     .thread-head .title{font-weight:700}
     .thread-head .meta{color:var(--muted);font-size:12px;margin-top:2px}
     .posts{padding:10px 12px}
-    .post{padding:10px 0;border-top:1px dashed var(--line)}
+    .post{padding:10px 0;border-top:1px dashed rgba(148,163,184,.25)}
     .post:first-child{border-top:none;padding-top:0}
-    .post .who{font-weight:600}
-    .post .dt{color:var(--muted);font-size:12px;margin-left:6px}
-    .post .body{margin-top:6px;white-space:pre-line}
+    .who{font-weight:600}
+    .dt{color:var(--muted);font-size:12px;margin-left:8px}
+    .body{margin-top:6px;white-space:pre-line;color:#e6eaf2}
+    .admin{color:var(--warn)}
+    .admin .who{color:var(--warn)}
+    .tag{display:inline-block;font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 8px;margin-left:8px}
     footer{
       color:var(--muted);
       font-size:12px;
@@ -86,20 +99,23 @@
       border-top:1px solid var(--line);
       margin-top:18px;
     }
-    .back{font-size:13px;color:var(--muted)}
+    .back a{color:#c7d2fe}
   </style>
 </head>
 <body>
   <header>
     <div class="wrap">
-      <h1>裏掲示板｜鷹原高校</h1>
-      <div class="back" style="margin-top:6px"><a href="index.html" style="color:#c7d2fe">トップへ</a></div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+        <h1>裏掲示板｜鷹原高校</h1>
+        <div class="back"><a href="index.html">トップへ</a></div>
+      </div>
+      <div class="sub">Board / 2024</div>
     </div>
   </header>
 
   <main class="wrap">
     <section class="notice">
-      <p>この掲示板は、鷹原高校裏掲示板です。</p>
+      <p style="margin:0">この掲示板は、鷹原高校裏掲示板です。</p>
       <div class="rule">個人が特定される内容や、憶測による書き込みは控えてください。</div>
     </section>
 
@@ -114,11 +130,167 @@
         <li><a href="#t6">【理科準備室】人体模型って2つなかった？（2024/05）</a></li>
         <li><a href="#t7">【雑談】掲示板できたの地味に便利（2024/04）</a></li>
       </ol>
+      <div class="hr"></div>
+      <div class="section-title" style="margin:0">※スレッド内の内容は閲覧者同士の雑談です。必要な連絡は教員を通してください。</div>
     </section>
 
+    <!-- (1) -->
+    <div class="thread" id="t1">
+      <div class="thread-head">
+        <div class="title">(1) 【文化祭】ステージ企画の音量について <span class="tag">2024/09</span></div>
+        <div class="meta">2024/09</div>
+      </div>
+      <div class="posts">
+        <div class="post">
+          <div><span class="who">1 名前：名無し</span><span class="dt">投稿日：2024/09/06 16:12</span></div>
+          <div class="body">体育館ステージの音量、去年より厳しくなるって本当？
+練習の時点で注意されたって聞いた。</div>
+        </div>
+        <div class="post">
+          <div><span class="who">2 名前：3年C</span><span class="dt">投稿日：2024/09/06 16:35</span></div>
+          <div class="body">今年は近隣からクレーム来たとかで…って噂。
+本当かは分からん。</div>
+        </div>
+        <div class="post">
+          <div><span class="who">3 名前：名無し</span><span class="dt">投稿日：2024/09/06 16:58</span></div>
+          <div class="body">練習場所が理科棟側に回された班があるらしいけど、
+あそこ音響反響えぐいよね。</div>
+        </div>
+        <div class="post admin">
+          <div><span class="who">4 名前：管理人</span><span class="dt">投稿日：2024/09/06 17:20</span></div>
+          <div class="body">音量や場所の調整は当日運営の案内に従ってください。
+特定の班・個人が分かる書き込みは控えてください。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- (2) -->
+    <div class="thread" id="t2">
+      <div class="thread-head">
+        <div class="title">(2) 【連絡】体育館シューズの落とし物 <span class="tag">2024/07</span></div>
+        <div class="meta">2024/07</div>
+      </div>
+      <div class="posts">
+        <div class="post">
+          <div><span class="who">1 名前：名無し</span><span class="dt">投稿日：2024/07/12 13:05</span></div>
+          <div class="body">体育館シューズ（青ライン）落とした人いる？
+金曜の昼に更衣室前で見た。</div>
+        </div>
+        <div class="post">
+          <div><span class="who">2 名前：名無し</span><span class="dt">投稿日：2024/07/12 13:18</span></div>
+          <div class="body">職員室前の落とし物箱に入ってたよ。</div>
+        </div>
+        <div class="post">
+          <div><span class="who">3 名前：1年D</span><span class="dt">投稿日：2024/07/12 13:40</span></div>
+          <div class="body">落とし物箱、なんか場所変わってない？
+前は事務室側だった気がする。</div>
+        </div>
+        <div class="post admin">
+          <div><span class="who">4 名前：管理人</span><span class="dt">投稿日：2024/07/12 14:10</span></div>
+          <div class="body">落とし物の受け渡しは事務室へ。
+個人が特定される情報の書き込みは控えてください。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- (3) -->
+    <div class="thread" id="t3">
+      <div class="thread-head">
+        <div class="title">(3) 【部活】写真部 展示の準備について <span class="tag">2024/06</span></div>
+        <div class="meta">2024/06</div>
+      </div>
+      <div class="posts">
+        <div class="post">
+          <div><span class="who">1 名前：写真部</span><span class="dt">投稿日：2024/06/21 17:05</span></div>
+          <div class="body">展示用のパネル足りない。
+借りられる人いたら教えて。</div>
+        </div>
+        <div class="post">
+          <div><span class="who">2 名前：名無し</span><span class="dt">投稿日：2024/06/21 17:20</span></div>
+          <div class="body">理科棟の倉庫に予備あるって聞いたけど、
+あそこ先生の許可ないと開かないよね。</div>
+        </div>
+        <div class="post">
+          <div><span class="who">3 名前：2年B</span><span class="dt">投稿日：2024/06/21 17:44</span></div>
+          <div class="body">倉庫って準備室の奥の方？
+「固定の台の近くは触るな」って言われたことある。</div>
+        </div>
+        <div class="post admin">
+          <div><span class="who">4 名前：管理人</span><span class="dt">投稿日：2024/06/21 18:10</span></div>
+          <div class="body">備品の貸し出しは顧問・担当教員経由でお願いします。
+場所・管理方法の推測は控えてください。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- (4) -->
+    <div class="thread" id="t4">
+      <div class="thread-head">
+        <div class="title">(4) 【校内】空調の効き悪くない？ <span class="tag">2024/06</span></div>
+        <div class="meta">2024/06</div>
+      </div>
+      <div class="posts">
+        <div class="post">
+          <div><span class="who">1 名前：名無し</span><span class="dt">投稿日：2024/06/04 12:22</span></div>
+          <div class="body">理科棟だけ空調弱くない？
+廊下の方が涼しいの意味わからん。</div>
+        </div>
+        <div class="post">
+          <div><span class="who">2 名前：名無し</span><span class="dt">投稿日：2024/06/04 12:40</span></div>
+          <div class="body">逆に、床だけ変に冷たい場所あるって聞いた。
+準備室の近くだった、って。</div>
+        </div>
+        <div class="post">
+          <div><span class="who">3 名前：3年A</span><span class="dt">投稿日：2024/06/04 13:05</span></div>
+          <div class="body">先生に言ったら「配管の都合」って言われた。
+なんか言い方が固かった。</div>
+        </div>
+        <div class="post admin">
+          <div><span class="who">4 名前：管理人</span><span class="dt">投稿日：2024/06/04 13:40</span></div>
+          <div class="body">設備の不具合は担任または事務室へ。
+推測で不安を煽る書き込みは控えてください。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- (5) Provided -->
+    <div class="thread" id="t5">
+      <div class="thread-head">
+        <div class="title">(5) 【理科室】準備室の整理、手伝える人いる？ <span class="tag">2024/05</span></div>
+        <div class="meta">2024/05</div>
+      </div>
+      <div class="posts">
+        <div class="post">
+          <div><span class="who">1 名前：生徒会 書記</span><span class="dt">投稿日：2024/05/02 16:20</span></div>
+          <div class="body">備品が増えたので、理科準備室の整理を手伝ってくれる人募集。
+放課後30分くらい。</div>
+        </div>
+        <div class="post">
+          <div><span class="who">2 名前：名無し</span><span class="dt">投稿日：2024/05/02 16:45</span></div>
+          <div class="body">奥の方って触っていいの？
+前から置き場所決まってる物あるって聞いたけど。</div>
+        </div>
+        <div class="post">
+          <div><span class="who">3 名前：生徒会 書記</span><span class="dt">投稿日：2024/05/02 17:00</span></div>
+          <div class="body">奥側と固定の実験台周辺は、
+先生から「動かさないように」って言われてる。</div>
+        </div>
+        <div class="post">
+          <div><span class="who">4 名前：名無し</span><span class="dt">投稿日：2024/05/02 17:12</span></div>
+          <div class="body">理由は？</div>
+        </div>
+        <div class="post">
+          <div><span class="who">5 名前：生徒会 書記</span><span class="dt">投稿日：2024/05/02 17:20</span></div>
+          <div class="body">詳しくは聞いてない。
+前からそう、って言われただけ。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- (6) Provided -->
     <div class="thread" id="t6">
       <div class="thread-head">
-        <div class="title">(6) 【理科準備室】人体模型って2つなかった？</div>
+        <div class="title">(6) 【理科準備室】人体模型って2つなかった？ <span class="tag">2024/05</span></div>
         <div class="meta">2024/05</div>
       </div>
       <div class="posts">
@@ -158,7 +330,7 @@
 床がやたら冷たい場所があるって。</div>
         </div>
 
-        <div class="post">
+        <div class="post admin">
           <div><span class="who">7 名前：管理人（生徒会）</span><span class="dt">投稿日：2024/05/18 19:30</span></div>
           <div class="body">理科室・準備室に関する話題は、
 事実確認が取れない内容の拡散を控えてください。
@@ -167,46 +339,10 @@
       </div>
     </div>
 
-    <div class="thread" id="t5">
-      <div class="thread-head">
-        <div class="title">(5) 【理科室】準備室の整理、手伝える人いる？</div>
-        <div class="meta">2024/05</div>
-      </div>
-      <div class="posts">
-        <div class="post">
-          <div><span class="who">1 名前：生徒会 書記</span><span class="dt">投稿日：2024/05/02 16:20</span></div>
-          <div class="body">備品が増えたので、理科準備室の整理を手伝ってくれる人募集。
-放課後30分くらい。</div>
-        </div>
-
-        <div class="post">
-          <div><span class="who">2 名前：名無し</span><span class="dt">投稿日：2024/05/02 16:45</span></div>
-          <div class="body">奥の方って触っていいの？
-前から置き場所決まってる物あるって聞いたけど。</div>
-        </div>
-
-        <div class="post">
-          <div><span class="who">3 名前：生徒会 書記</span><span class="dt">投稿日：2024/05/02 17:00</span></div>
-          <div class="body">奥側と固定の実験台周辺は、
-先生から「動かさないように」って言われてる。</div>
-        </div>
-
-        <div class="post">
-          <div><span class="who">4 名前：名無し</span><span class="dt">投稿日：2024/05/02 17:12</span></div>
-          <div class="body">理由は？</div>
-        </div>
-
-        <div class="post">
-          <div><span class="who">5 名前：生徒会 書記</span><span class="dt">投稿日：2024/05/02 17:20</span></div>
-          <div class="body">詳しくは聞いてない。
-前からそう、って言われただけ。</div>
-        </div>
-      </div>
-    </div>
-
+    <!-- (7) -->
     <div class="thread" id="t7">
       <div class="thread-head">
-        <div class="title">(7) 【雑談】掲示板できたの地味に便利</div>
+        <div class="title">(7) 【雑談】掲示板できたの地味に便利 <span class="tag">2024/04</span></div>
         <div class="meta">2024/04</div>
       </div>
       <div class="posts">
@@ -220,7 +356,7 @@
           <div class="body">変な噂も書き込まれそうだからほどほどで。</div>
         </div>
 
-        <div class="post">
+        <div class="post admin">
           <div><span class="who">3 名前：管理人</span><span class="dt">投稿日：2024/04/10 15:45</span></div>
           <div class="body">必要に応じてスレッド整理します。</div>
         </div>

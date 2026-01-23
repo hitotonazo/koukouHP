@@ -7,58 +7,68 @@
   <meta name="description" content="鷹原高校 生徒会（2024年度新設）" />
   <style>
     :root{
-      --bg:#f6f7fb;
-      --card:#ffffff;
+      --bg:#fbfbfc;
+      --paper:#ffffff;
       --txt:#0b1220;
-      --muted:#4b5563;
+      --muted:#6b7280;
       --line:#e5e7eb;
-      --brand:#1f3a8a;
-      --brand2:#0b5ed7;
-      --link:#1d4ed8;
-      --shadow:0 1px 2px rgba(0,0,0,.05);
-      --radius:14px;
+      --brand:#0f766e; /* teal */
+      --brand2:#0ea5a5;
+      --link:#0f766e;
+      --shadow:0 6px 24px rgba(15,23,42,.08);
+      --radius:16px;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans JP",sans-serif;
-      background:var(--bg);
+      font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans JP",sans-serif;
+      background:
+        radial-gradient(800px 420px at 10% 0%, rgba(14,165,165,.10), transparent 55%),
+        radial-gradient(700px 420px at 90% 10%, rgba(15,118,110,.08), transparent 55%),
+        var(--bg);
       color:var(--txt);
-      line-height:1.65;
+      line-height:1.75;
     }
     a{color:var(--link);text-decoration:none}
     a:hover{text-decoration:underline}
     header{
-      background:linear-gradient(90deg,var(--brand),var(--brand2));
-      color:#fff;
-      padding:18px 16px;
+      padding:18px 16px 10px;
+      border-bottom:1px solid var(--line);
+      background:rgba(255,255,255,.7);
+      backdrop-filter: blur(8px);
+      position:sticky;top:0;z-index:10;
     }
     .wrap{max-width:980px;margin:0 auto;padding:16px}
-    .topbar{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
+    .top{
       max-width:980px;margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
       padding:0 16px;
     }
-    .brand{
-      font-weight:700;letter-spacing:.02em;
-      display:flex;flex-direction:column;gap:2px;
-    }
-    .brand small{opacity:.9;font-weight:500}
-    .nav a{
-      color:#fff;opacity:.95;margin-left:14px;font-size:14px;
-    }
+    .brand{display:flex;flex-direction:column;gap:2px}
+    .brand b{letter-spacing:.02em}
+    .brand small{color:var(--muted)}
+    .nav a{margin-left:14px;color:var(--txt);opacity:.9;font-size:14px}
     .nav a:hover{opacity:1;text-decoration:none}
+    .hero{
+      max-width:980px;margin:0 auto;
+      padding:10px 16px 4px;
+    }
+    h1{margin:0;font-size:22px}
+    .kicker{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .pill{
+      display:inline-block;font-size:12px;
+      padding:3px 10px;border-radius:999px;
+      border:1px solid rgba(15,118,110,.25);
+      color:var(--brand);
+      background:rgba(14,165,165,.06);
+    }
     .card{
-      background:var(--card);
+      background:var(--paper);
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:14px;
       box-shadow:var(--shadow);
     }
-    h1{margin:0;font-size:20px}
-    h2{margin:0 0 10px;font-size:16px}
-    .muted{color:var(--muted)}
-    .small{font-size:12px}
     .grid{
       display:grid;
       grid-template-columns:1.2fr .8fr;
@@ -68,42 +78,34 @@
       .grid{grid-template-columns:1fr}
       .nav{display:none}
     }
+    h2{margin:0 0 10px;font-size:16px}
     ul{margin:8px 0 0;padding-left:18px}
     li{margin:6px 0}
-    .pill{
-      display:inline-block;
-      font-size:12px;
-      padding:3px 10px;
-      border:1px solid rgba(255,255,255,.35);
-      border-radius:999px;
-      opacity:.95;
-    }
-    .kicker{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .small{font-size:12px}
+    .muted{color:var(--muted)}
     .hr{height:1px;background:var(--line);margin:12px 0}
     footer{
       border-top:1px solid var(--line);
-      padding:12px 0;
       margin-top:18px;
+      padding:12px 0;
       color:var(--muted);
       font-size:12px;
     }
-    .list-title{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
     .badge{
-      font-size:12px;
-      color:#0f172a;
-      background:#eef2ff;
-      border:1px solid #dbe4ff;
-      padding:3px 10px;
-      border-radius:999px;
+      font-size:12px;color:var(--brand);
+      border:1px solid rgba(15,118,110,.25);
+      padding:3px 10px;border-radius:999px;
+      background:rgba(14,165,165,.06);
       white-space:nowrap;
     }
+    .list-title{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
   </style>
 </head>
 <body>
   <header>
-    <div class="topbar">
+    <div class="top">
       <div class="brand">
-        <div>鷹原（たかはら）高等学校</div>
+        <b>鷹原（たかはら）高等学校</b>
         <small>公式サイト</small>
       </div>
       <nav class="nav" aria-label="global">
@@ -114,11 +116,11 @@
         <a href="#archive">アーカイブ</a>
       </nav>
     </div>
-    <div class="wrap" style="padding-top:10px">
+    <div class="hero">
       <h1>生徒会｜鷹原高校</h1>
       <div class="kicker">
         <span class="pill">2024年度 新設</span>
-        <span class="pill">Student Council</span>
+        <span class="pill">校内向け</span>
       </div>
     </div>
   </header>
@@ -134,7 +136,7 @@
       <section class="card" id="activities">
         <div class="list-title">
           <h2>主な活動</h2>
-          <span class="badge">校内向け</span>
+          <span class="badge">案内</span>
         </div>
         <ul>
           <li>文化祭／体育祭の企画運営</li>
@@ -191,7 +193,6 @@
 
     <footer>
       © 鷹原高校 / このWebサイトの内容はフィクションです。
-    
       <a href="urabbs.html" aria-label="裏掲示板" style="float:right;opacity:.08;text-decoration:none;color:inherit">・</a>
     </footer>
   </main>
