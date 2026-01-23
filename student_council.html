@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>生徒会｜鷹原高校</title>
+  <meta name="description" content="鷹原高校 生徒会（2024年度新設）" />
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --txt:#0b1220;
+      --muted:#4b5563;
+      --line:#e5e7eb;
+      --brand:#1f3a8a;
+      --brand2:#0b5ed7;
+      --link:#1d4ed8;
+      --shadow:0 1px 2px rgba(0,0,0,.05);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans JP",sans-serif;
+      background:var(--bg);
+      color:var(--txt);
+      line-height:1.65;
+    }
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      background:linear-gradient(90deg,var(--brand),var(--brand2));
+      color:#fff;
+      padding:18px 16px;
+    }
+    .wrap{max-width:980px;margin:0 auto;padding:16px}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      max-width:980px;margin:0 auto;
+      padding:0 16px;
+    }
+    .brand{
+      font-weight:700;letter-spacing:.02em;
+      display:flex;flex-direction:column;gap:2px;
+    }
+    .brand small{opacity:.9;font-weight:500}
+    .nav a{
+      color:#fff;opacity:.95;margin-left:14px;font-size:14px;
+    }
+    .nav a:hover{opacity:1;text-decoration:none}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:14px;
+      box-shadow:var(--shadow);
+    }
+    h1{margin:0;font-size:20px}
+    h2{margin:0 0 10px;font-size:16px}
+    .muted{color:var(--muted)}
+    .small{font-size:12px}
+    .grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:14px;
+    }
+    @media (max-width:860px){
+      .grid{grid-template-columns:1fr}
+      .nav{display:none}
+    }
+    ul{margin:8px 0 0;padding-left:18px}
+    li{margin:6px 0}
+    .pill{
+      display:inline-block;
+      font-size:12px;
+      padding:3px 10px;
+      border:1px solid rgba(255,255,255,.35);
+      border-radius:999px;
+      opacity:.95;
+    }
+    .kicker{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .hr{height:1px;background:var(--line);margin:12px 0}
+    footer{
+      border-top:1px solid var(--line);
+      padding:12px 0;
+      margin-top:18px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .list-title{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+    .badge{
+      font-size:12px;
+      color:#0f172a;
+      background:#eef2ff;
+      border:1px solid #dbe4ff;
+      padding:3px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div>鷹原（たかはら）高等学校</div>
+        <small>公式サイト</small>
+      </div>
+      <nav class="nav" aria-label="global">
+        <a href="index.html">トップ</a>
+        <a href="#activities">主な活動</a>
+        <a href="#members">役員</a>
+        <a href="#news">お知らせ</a>
+        <a href="#archive">アーカイブ</a>
+      </nav>
+    </div>
+    <div class="wrap" style="padding-top:10px">
+      <h1>生徒会｜鷹原高校</h1>
+      <div class="kicker">
+        <span class="pill">2024年度 新設</span>
+        <span class="pill">Student Council</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <p>鷹原高校生徒会は、2024年度より新体制として活動を開始しました。<br>
+      学校行事の運営や校内環境の改善提案などを行っています。</p>
+      <p class="small muted">※本ページは、学校公式サイトのリニューアル（2024年）に伴い新設されました。</p>
+    </section>
+
+    <section class="grid" style="margin-top:14px">
+      <section class="card" id="activities">
+        <div class="list-title">
+          <h2>主な活動</h2>
+          <span class="badge">校内向け</span>
+        </div>
+        <ul>
+          <li>文化祭／体育祭の企画運営</li>
+          <li>校内意見箱の集計と提案</li>
+          <li>部活動連絡会の開催</li>
+          <li>校内掲示・広報の整備</li>
+        </ul>
+      </section>
+
+      <aside class="card" id="members">
+        <div class="list-title">
+          <h2>役員（2024年度）</h2>
+          <span class="badge">任期：2024</span>
+        </div>
+        <ul>
+          <li>生徒会長：高橋 陽斗</li>
+          <li>副会長　：藤田 結菜</li>
+          <li>書記　　：小野 颯太</li>
+          <li>会計　　：西村 莉子</li>
+          <li>広報　　：森田 悠真</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="card" id="news" style="margin-top:14px">
+      <div class="list-title">
+        <h2>お知らせ</h2>
+        <span class="badge">更新：随時</span>
+      </div>
+      <ol style="margin:8px 0 0;padding-left:18px">
+        <li style="margin:6px 0">生徒会ページ公開のお知らせ（2024/04）</li>
+        <li style="margin:6px 0">文化祭実行委員募集（締切：9/15）</li>
+        <li style="margin:6px 0">校内意見箱（8月分）集計結果を掲載しました</li>
+      </ol>
+    </section>
+
+    <section class="card" id="archive" style="margin-top:14px">
+      <div class="list-title">
+        <h2>アーカイブ（旧掲示板ログ）</h2>
+        <span class="badge">参考資料</span>
+      </div>
+      <p style="margin:8px 0 0">
+        <a href="index_2010.html">生徒会 旧掲示板ログ（参考資料）</a>
+      </p>
+      <p class="small muted" style="margin-top:6px">
+        ※内容は当時の記録を元に移植したものであり、現在の運用とは関係ありません。
+      </p>
+      <div class="hr"></div>
+      <p class="small muted" style="margin:0">
+        ※過去の生徒会活動に関する記録については、<br>
+        　資料整理の過程で一部をアーカイブとして公開しています。
+      </p>
+    </section>
+
+    <footer>
+      © 鷹原高校 / このWebサイトの内容はフィクションです。
+    
+      <a href="urabbs.html" aria-label="裏掲示板" style="float:right;opacity:.08;text-decoration:none;color:inherit">・</a>
+    </footer>
+  </main>
+</body>
+</html>
