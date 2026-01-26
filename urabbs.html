@@ -100,7 +100,33 @@
       margin-top:18px;
     }
     .back a{color:#c7d2fe}
-  </style>
+  
+    /* posting form (disabled) + deletion traces */
+    .formbox{margin:14px 0;padding:14px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.02);box-shadow:var(--shadow)}
+    .formbox h2{margin:0 0 8px;font-size:14px}
+    .formbox label{display:block;margin:10px 0;font-size:13px;color:var(--muted)}
+    .formbox input,.formbox textarea{
+      width:100%;padding:10px;border-radius:10px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.22);color:var(--txt)
+    }
+    .formbox button{
+      padding:10px 12px;border-radius:10px;border:1px solid var(--line);
+      background:rgba(255,255,255,.06);color:var(--txt)
+    }
+    .formbox button:disabled,.formbox input:disabled,.formbox textarea:disabled{opacity:.55}
+    .warnline{margin:6px 0 10px;color:var(--warn);font-size:13px}
+    .deleted{
+      margin:10px 0;
+      padding:10px 10px;
+      border-left:3px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.03);
+      border-radius:10px;
+      color:rgba(229,231,235,.78);
+      font-size:13px;
+    }
+
+</style>
 </head>
 <body>
   <header>
@@ -118,6 +144,19 @@
       <p style="margin:0">この掲示板は、鷹原高校裏掲示板です。</p>
       <div class="rule">個人が特定される内容や、憶測による書き込みは控えてください。</div>
     </section>
+
+
+    <section class="formbox" aria-label="投稿フォーム">
+      <h2>投稿フォーム</h2>
+      <p class="warnline">※荒らし行為が確認されたため、現在投稿フォームを停止しています。</p>
+      <form>
+        <label>名前（任意）<br><input type="text" placeholder="名無し / 2年A など" disabled></label>
+        <label>本文<br><textarea rows="4" placeholder="投稿内容" disabled></textarea></label>
+        <button type="button" disabled>投稿する（停止中）</button>
+      </form>
+      <p class="small">※閲覧は可能です。個人が特定される内容や、憶測による書き込みは控えてください。</p>
+    </section>
+
 
     <section class="board" id="list">
       <h2 class="section-title">スレッド一覧（すべて2024年）</h2>
