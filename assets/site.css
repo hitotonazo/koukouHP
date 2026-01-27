@@ -212,3 +212,37 @@ li{margin:6px 0}
 .searchbox{display:flex;gap:10px;align-items:center}
 .searchbox input{flex:1;min-width:0;padding:10px 12px;border-radius:12px;border:1px solid rgba(15,23,42,.16)}
 .searchbox .btn{padding:10px 14px;border-radius:12px;border:1px solid rgba(15,23,42,.16);background:#0f766e;color:#fff}
+
+
+/* ===== search page ===== */
+.searchList{margin:10px 0 0; padding-left:18px}
+.searchList li{margin:8px 0}
+.hintBox{
+  margin-top:10px;
+  padding:12px 12px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.7);
+}
+.ghost{
+  letter-spacing:.08em;
+  text-decoration:none;
+}
+.ghost:hover{text-decoration:underline}
+.tiny{font-size:12px;color:var(--muted);margin-top:8px}
+.nav-search{
+  display:flex;align-items:center;
+  padding:6px 10px;border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.78);
+}
+.nav-search input{
+  border:0;outline:0;background:transparent;
+  width:180px; max-width:28vw;
+  font-size:14px;
+}
+@media (max-width:720px){
+  .navlinks{gap:10px}
+  .nav-search{width:100%}
+  .nav-search input{width:100%}
+}

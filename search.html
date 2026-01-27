@@ -7,20 +7,31 @@
   <link rel="stylesheet" href="assets/site.css?v=2024-10-01" />
 </head>
 <body>
-  <header class="topnav">
-    <div class="brand">
-      <div class="logo"></div>
-      <div class="brandtext">
-        <div class="name">鷹原（たかはら）高等学校</div>
-        <div class="sub">公式サイト（検索）</div>
-      </div>
+  
+  <header class="topnav" role="banner">
+    <div class="inner">
+      <a class="brand" href="index.html" aria-label="鷹原高校 トップへ">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="t">
+          <b>鷹原（たかはら）高等学校</b>
+          <small>公式サイト（検索）</small>
+        </span>
+      </a>
+
+      <nav class="navlinks" aria-label="主要メニュー">
+        <a href="index.html">トップ</a>
+        <a href="student_council.html">生徒会</a>
+        <a href="urabbs.html">裏掲示板</a>
+
+        <form class="nav-search" action="search.html" method="get" role="search" aria-label="サイト内検索">
+          <input type="search" name="q" placeholder="サイト内検索" aria-label="サイト内検索" />
+        </form>
+      </nav>
     </div>
-    <nav class="nav">
-      <a href="index.html">トップ</a>
-    </nav>
   </header>
 
-  <main class="wrap" style="padding-top:20px">
+
+  <main class="wrap">
     <section class="card">
       <h1 style="margin:0 0 10px;font-size:20px">サイト内検索</h1>
       <p class="small" style="margin:0 0 14px">キーワードを入力すると、該当ページへのリンクを表示します。</p>
@@ -34,39 +45,60 @@
     </section>
   </main>
 
-  <script>
-    const items = [
-      {title:"お知らせ（トップ）", url:"index.html#news", text:"更新 案内 連絡"},
-      {title:"学校案内（トップ）", url:"index.html#guide", text:"校長 理科教員 連絡先"},
-      {title:"生徒会ページ", url:"student_council.html", text:"役員 行事案内 意見箱"},
-      {title:"裏掲示板", url:"urabbs.html", text:"文化祭 体育館 空調 写真部 理科準備室 人体模型"},
-      {title:"過去サイト（2016）", url:"index_2016.html", text:"2016 旧サイト"},
-      {title:"過去サイト（2010）", url:"index_2010.html", text:"2010 旧サイト"},
-      {title:"過去サイト（2003）", url:"index_2003.html", text:"2003 旧サイト"},
-      {title:"過去サイト（1998）", url:"index_1998.html", text:"1998 旧サイト"}
-    ];
+  
+<script>
+  // 検索対象（公開ページ）
+  const items = [
+    {title:"お知らせ（トップ）", url:"index.html#news", text:"更新 案内 連絡"},
+    {title:"学校案内（トップ）", url:"index.html#guide", text:"校長 理科教員 連絡先"},
+    {title:"スクールライフ（トップ）", url:"index.html#life", text:"行事 部活動 時程"},
+    {title:"配布資料（トップ）", url:"index.html#downloads", text:"PDF 申請書 抜粋"},
+    {title:"生徒会ページ", url:"student_council.html", text:"役員 行事案内 意見箱"},
+    {title:"裏掲示板", url:"urabbs.html", text:"文化祭 体育館 空調 写真部 理科準備室 人体模型"}
+  ];
 
-    const params = new URLSearchParams(location.search);
-    const q = (params.get("q") || "").trim();
-    const result = document.getElementById("result");
-    const inputs = document.querySelectorAll('input[name="q"]');
-    inputs.forEach(i => i.value = q);
+  const params = new URLSearchParams(location.search);
+  const q = (params.get("q") || "").trim();
+  const result = document.getElementById("result");
+  const inputs = document.querySelectorAll('input[name="q"]');
+  inputs.forEach(i => i.value = q);
 
-    function esc(s){ return s.replace(/[&<>"']/g, c=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])); }
+  function esc(s){ return s.replace(/[&<>"']/g, c=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])); }
 
-    if(!q){
-      result.innerHTML = '<p class="small">検索キーワードを入力してください。</p>';
+  function renderList(hits){
+    result.innerHTML =
+      '<ul class="searchList">' +
+        hits.map(h => '<li><a href="'+h.url+'">'+esc(h.title)+'</a></li>').join("") +
+      '</ul>';
+  }
+
+  if(!q){
+    result.innerHTML = '<p class="small">検索キーワードを入力してください。</p>';
+  }else{
+    const key = q.toLowerCase();
+
+    // 特定の入力でだけ「表示」が乱れる（説明はしない）
+    const gate = String(201600 + 4); // 201604
+    if(key === gate){
+      result.innerHTML = `
+        <div class="hintBox">
+          <div class="small">検索結果</div>
+          <ul class="searchList">
+            <li><a class="ghost" href="index_2016.html">旧ページ（参照）</a></li>
+          </ul>
+          <div class="tiny">※通信状況により、古いページが表示されることがあります。</div>
+        </div>
+      `;
     }else{
-      const key = q.toLowerCase();
       const hits = items.filter(it => (it.title + " " + it.text).toLowerCase().includes(key));
       if(!hits.length){
         result.innerHTML = '<p class="small">該当するページが見つかりませんでした。</p>';
       }else{
-        result.innerHTML = '<ul style="margin:0;padding-left:18px">' + hits.map(h => 
-          '<li style="margin:8px 0"><a href="'+h.url+'">'+esc(h.title)+'</a></li>'
-        ).join("") + '</ul>';
+        renderList(hits);
       }
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
