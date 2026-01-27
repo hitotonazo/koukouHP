@@ -19,10 +19,18 @@
       </a>
 
       <nav class="navlinks" aria-label="主要メニュー">
-        <a href="index.html">トップ</a>
+        <a href="#news">お知らせ</a>
+        <a href="#guide">学校案内</a>
+        <a href="#life">スクールライフ</a>
         <a href="student_council.html">生徒会</a>
-        <a href="urabbs.html">裏掲示板</a>
+        <a href="#downloads">配布資料</a>
+        <a href="#links">過去サイト</a>
+      
+      <form class="nav-search" action="search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="サイト内検索" aria-label="サイト内検索" />
+      </form>
 
+    
         <form class="nav-search" action="search.html" method="get" role="search" aria-label="サイト内検索">
           <input type="search" name="q" placeholder="サイト内検索" aria-label="サイト内検索" />
         </form>
@@ -46,8 +54,8 @@
   </main>
 
   
+
 <script>
-  // 検索対象（公開ページ）
   const items = [
     {title:"お知らせ（トップ）", url:"index.html#news", text:"更新 案内 連絡"},
     {title:"学校案内（トップ）", url:"index.html#guide", text:"校長 理科教員 連絡先"},
@@ -72,33 +80,50 @@
       '</ul>';
   }
 
-  if(!q){
-    result.innerHTML = '<p class="small">検索キーワードを入力してください。</p>';
-  }else{
-    const key = q.toLowerCase();
+  function renderGhost(hit){
+    document.documentElement.classList.add("ts-glitch");
+    result.innerHTML = `
+      <div class="hintBox">
+        <div class="small">検索結果</div>
+        <ul class="searchList">
+          <li><a class="ghost" href="${hit.url}" data-text="${esc(hit.title)}">${esc(hit.title)}</a></li>
+        </ul>
+        <div class="tiny">${esc(hit.note || "")}</div>
+      </div>
+    `;
+    setTimeout(()=>document.documentElement.classList.remove("ts-glitch"), 520);
+  }
 
-    // 特定の入力でだけ「表示」が乱れる（説明はしない）
-    const gate = String(201600 + 4); // 201604
-    if(key === gate){
-      result.innerHTML = `
-        <div class="hintBox">
-          <div class="small">検索結果</div>
-          <ul class="searchList">
-            <li><a class="ghost" href="index_2016.html">旧ページ（参照）</a></li>
-          </ul>
-          <div class="tiny">※通信状況により、古いページが表示されることがあります。</div>
-        </div>
-      `;
-    }else{
-      const hits = items.filter(it => (it.title + " " + it.text).toLowerCase().includes(key));
-      if(!hits.length){
-        result.innerHTML = '<p class="small">該当するページが見つかりませんでした。</p>';
-      }else{
-        renderList(hits);
+  async function run(){
+    if(!q){
+      result.innerHTML = '<p class="small">検索キーワードを入力してください。</p>';
+      return;
+    }
+
+    // 通常検索（公開範囲のみ）
+    const key = q.toLowerCase();
+    const hits = items.filter(it => (it.title + " " + it.text).toLowerCase().includes(key));
+
+    // パスワード扱い（サーバ側でのみ判定）
+    try{
+      const r = await fetch('ts?q=' + encodeURIComponent(q), { cache: "no-store" });
+      const j = await r.json();
+      if(j && j.ok && j.hits && j.hits[0]){
+        renderGhost(j.hits[0]);
+        return;
       }
+    }catch(e){}
+
+    if(!hits.length){
+      result.innerHTML = '<p class="small">該当するページが見つかりませんでした。</p>';
+    }else{
+      renderList(hits);
     }
   }
+
+  run();
 </script>
+
 
 </body>
 </html>

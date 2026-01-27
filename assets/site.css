@@ -246,3 +246,59 @@ li{margin:6px 0}
   .nav-search{width:100%}
   .nav-search input{width:100%}
 }
+
+
+/* ===== time-slip gate visual ===== */
+.ghost{
+  position:relative;
+  display:inline-block;
+  color:rgba(10, 30, 35, .92);
+  text-decoration:none;
+  letter-spacing:.12em;
+}
+.ghost::before,
+.ghost::after{
+  content:attr(data-text);
+  position:absolute;
+  left:0; top:0;
+  pointer-events:none;
+  opacity:.55;
+}
+.ghost::before{
+  transform:translate(1px,0);
+  filter:blur(.6px);
+}
+.ghost::after{
+  transform:translate(-1px,0);
+  mix-blend-mode:screen;
+  opacity:.35;
+}
+.ghost:hover{ text-decoration:underline; }
+
+.ts-glitch{
+  animation: ts-shift .52s linear 1;
+}
+@keyframes ts-shift{
+  0%{ filter:none; }
+  18%{ filter:saturate(1.1) contrast(1.05) hue-rotate(6deg); }
+  26%{ filter:saturate(.9) contrast(1.12) hue-rotate(-8deg); }
+  40%{ filter:blur(.35px); }
+  100%{ filter:none; }
+}
+
+/* Search header tidy */
+.nav-search{
+  display:flex;align-items:center;
+  padding:6px 10px;border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.78);
+}
+.nav-search input{
+  border:0;outline:0;background:transparent;
+  width:180px; max-width:24vw;
+  font-size:14px;
+}
+@media (max-width:720px){
+  .nav-search{width:100%}
+  .nav-search input{width:100%}
+}
