@@ -22,7 +22,7 @@ export async function onRequestGet(context) {
   return new Response(JSON.stringify({
     ok: true,
     hits: [
-      { title: "旧ページ（参照）", url: "index_2016.html", note: "※通信状況により、古いページが表示されることがあります。" }
+      { title: "旧ページ（2016年）", url: "index_2016.html", note: "※通信状況により、古いページが表示されることがあります。" }
     ]
   }), {
     headers: { "content-type": "application/json; charset=utf-8" }

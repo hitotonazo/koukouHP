@@ -302,3 +302,49 @@ li{margin:6px 0}
   .nav-search{width:100%}
   .nav-search input{width:100%}
 }
+
+
+/* ===== ghost blur/jitter (v3) ===== */
+.ghost{
+  position:relative;
+  display:inline-block;
+  text-decoration:none;
+  letter-spacing:.10em;
+  animation: ghost-jitter 1.6s steps(2,end) infinite;
+}
+.ghost::before,
+.ghost::after{
+  content:attr(data-text);
+  position:absolute;
+  left:0; top:0;
+  pointer-events:none;
+}
+.ghost::before{
+  opacity:.55;
+  filter:blur(.8px);
+  mix-blend-mode:multiply;
+  animation: ghost-shift-a .9s steps(2,end) infinite;
+}
+.ghost::after{
+  opacity:.35;
+  filter:blur(.3px);
+  mix-blend-mode:screen;
+  animation: ghost-shift-b 1.1s steps(2,end) infinite;
+}
+@keyframes ghost-jitter{
+  0%{ transform:translate(0,0); }
+  25%{ transform:translate(0.2px,0); }
+  50%{ transform:translate(-0.3px,0.1px); }
+  75%{ transform:translate(0.1px,-0.2px); }
+  100%{ transform:translate(0,0); }
+}
+@keyframes ghost-shift-a{
+  0%{ transform:translate(1px,0); }
+  50%{ transform:translate(0,0.3px); }
+  100%{ transform:translate(1px,0); }
+}
+@keyframes ghost-shift-b{
+  0%{ transform:translate(-1px,0); }
+  40%{ transform:translate(-0.2px,-0.2px); }
+  100%{ transform:translate(-1px,0); }
+}
