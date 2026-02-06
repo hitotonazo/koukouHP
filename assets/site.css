@@ -348,3 +348,8 @@ li{margin:6px 0}
   40%{ transform:translate(-0.2px,-0.2px); }
   100%{ transform:translate(-1px,0); }
 }
+
+/* ===== R2 images ===== */
+.heroMedia{margin:14px 0 10px}
+.heroImg{width:100%; height:auto; border-radius:16px; border:1px solid var(--line); background:#f3f6f7}
+.thumbImg{width:100%; height:auto; border-radius:14px; border:1px solid var(--line); background:#f3f6f7}
