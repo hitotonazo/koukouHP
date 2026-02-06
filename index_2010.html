@@ -92,6 +92,7 @@
       background:#0b0b0b;
     }
   </style>
+  <link rel="stylesheet" href="/css/year_layout_fix.css">
 </head>
 <body class="era-2010">
   <div id="container" class="jump">
@@ -168,24 +169,17 @@
       </div>
     </div>
 
-    <div id="footer">
-      © Takahara High School / Since 2001
-    </div>
-  </div>
-  <script src="assets/r2_config.js"></script>
-  <script src="assets/r2_helper.js"></script>
-</body>
-</html>
-
-<section id="gallery" class="section" class="eraSection eraGallery era-2010">
+    
+    <!-- 年代ページ追加コンテンツ（校内スナップ／配布資料） -->
+    <div class="year-block-wrap">
+      <section id="gallery" class="section eraSection eraGallery era-2010 year-block">
   <h2>校内スナップ（2010）</h2>
   <div class="card">
     <img class="thumbImg" data-r2="images/gallery_2010_1200x800.png" alt="校内の様子（イメージ）" loading="lazy" />
     <p class="small">※掲載画像は当時の体裁を再現したものです。</p>
   </div>
 </section>
-
-<section id="downloads" class="section" class="eraSection eraDownloads era-2010">
+      <section id="downloads" class="section eraSection eraDownloads era-2010 year-block">
   <h2>配布資料（2010）</h2>
   <div class="card">
 
@@ -196,3 +190,13 @@
 
   </div>
 </section>
+    </div>
+<div id="footer">
+      © Takahara High School / Since 2001
+    </div>
+  </div>
+  <script src="assets/r2_config.js"></script>
+  <script src="assets/r2_helper.js"></script>
+</body>
+</html>
+
