@@ -353,3 +353,98 @@ li{margin:6px 0}
 .heroMedia{margin:14px 0 10px}
 .heroImg{width:100%; height:auto; border-radius:16px; border:1px solid var(--line); background:#f3f6f7}
 .thumbImg{width:100%; height:auto; border-radius:14px; border:1px solid var(--line); background:#f3f6f7}
+
+
+/* ===== Era sections ===== */
+.eraSection{margin-top:18px}
+.eraSection .card{overflow:hidden}
+.eraSection h2{margin:0 0 10px}
+
+/* Make images always responsive */
+img{max-width:100%; height:auto}
+
+/* Doc list responsive */
+.docList{margin:0; padding-left:18px}
+.docList li{margin:6px 0}
+
+/* Mobile: stack everything, prevent overflow */
+@media (max-width: 860px){
+  .container{padding-left:14px; padding-right:14px}
+  .grid2{grid-template-columns:1fr !important}
+  .heroCard{padding:16px !important}
+  .heroMedia{margin:12px 0 8px}
+  .card{padding:16px !important}
+  .siteHeader{position:sticky; top:0; z-index:50}
+  .navRow{flex-wrap:wrap; gap:10px}
+  .navLinks{flex-wrap:wrap}
+  .searchMini{width:100%}
+}
+@media (max-width: 520px){
+  .heroCard{border-radius:18px}
+  .heroImg{border-radius:14px}
+  .thumbImg{border-radius:14px}
+  .docList{padding-left:16px}
+}
+
+/* ===== Era-specific blending for added Gallery/Downloads ===== */
+/* 2016: mostly normal, slight "ズレ" and subdued border */
+.era-2016 .eraSection .card{
+  border-color: rgba(0,0,0,.06);
+  box-shadow: 0 10px 26px rgba(0,0,0,.06);
+}
+.era-2016 .eraSection .thumbImg{
+  filter: saturate(0.98) contrast(1.02);
+}
+.era-2016 .eraSection .docList a{
+  text-decoration-thickness: 1px;
+}
+
+/* 2010: readability drops, spacing a bit off but still OK */
+.era-2010 .eraSection{
+  transform: translateX(-2px);
+}
+.era-2010 .eraSection .card{
+  border-style:dashed;
+  border-width:1px;
+  border-color: rgba(0,0,0,.18);
+  box-shadow:none;
+}
+.era-2010 .eraSection h2{
+  letter-spacing: .02em;
+}
+.era-2010 .eraSection .thumbImg{
+  filter: grayscale(.1) contrast(1.05);
+}
+
+/* 2003: layout warped, more blank feel */
+.era-2003 .eraSection{
+  opacity:.95;
+}
+.era-2003 .eraSection .card{
+  border-color: rgba(0,0,0,.25);
+  background: rgba(255,255,255,.82);
+}
+.era-2003 .eraSection .docList li{
+  margin:10px 0;
+}
+.era-2003 .eraSection .thumbImg{
+  filter: sepia(.12) contrast(1.08);
+}
+
+/* 1998: near broken, noisy + slight flicker */
+@keyframes eraFlicker { 0%, 100%{opacity:1} 50%{opacity:.92} }
+.era-1998 .eraSection .card{
+  background: rgba(10,12,14,.55);
+  border-color: rgba(255,255,255,.08);
+  box-shadow:none;
+}
+.era-1998 .eraSection .thumbImg{
+  filter: grayscale(.35) contrast(1.2) brightness(.9);
+}
+.era-1998 .eraSection{
+  animation: eraFlicker 5.6s infinite;
+}
+.era-1998 .eraSection .docList a{
+  color: rgba(230,240,255,.92);
+  text-shadow: 0 0 1px rgba(120,160,255,.35);
+}
